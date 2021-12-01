@@ -7,10 +7,10 @@ const {validateUserId, validateUser, validatePost} = require('../middleware/midd
 const router = express.Router();
 
 // Requests
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   Users.get()
     .then(usersList => {
-      res.status(200).json(userslist);
+      res.status(200).json(usersList);
     })
     .catch(err => {
       console.log(err);
